@@ -9,7 +9,6 @@
     :root {
       --text-main: #111;
       --text-sub: #666;
-      --accent: #000;
       --bg: #fff;
     }
 
@@ -27,12 +26,13 @@
       padding: 120px 24px;
     }
 
-    .badge {
-      display: inline-block;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      color: var(--text-sub);
-      margin-bottom: 24px;
+    /* Logo */
+    .logo {
+      margin-bottom: 32px;
+    }
+    .logo img {
+      height: 56px;
+      display: block;
     }
 
     h1 {
@@ -68,17 +68,15 @@
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 40px;
-      }
-      .subtitle {
-        font-size: 18px;
-      }
+      h1 { font-size: 40px; }
+      .subtitle { font-size: 18px; }
     }
   </style>
 </head>
 
 <body>
+  <div class="page">
+
     <div class="logo">
       <img src="assets/optee-logo.png" alt="Optee logo">
     </div>
@@ -103,6 +101,7 @@
     <footer>
       © Optee · In private beta
     </footer>
+
   </div>
 </body>
 </html>
