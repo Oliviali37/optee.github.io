@@ -4,48 +4,105 @@
   <meta charset="UTF-8" />
   <title>Optee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
+    :root {
+      --text-main: #111;
+      --text-sub: #666;
+      --accent: #000;
+      --bg: #fff;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
-      background: #ffffff;
-      color: #111;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
     }
-    .container {
-      max-width: 600px;
-      text-align: center;
-      padding: 20px;
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 120px 24px;
     }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--text-sub);
+      margin-bottom: 24px;
+    }
+
     h1 {
-      font-size: 42px;
-      margin-bottom: 12px;
+      font-size: 56px;
+      font-weight: 600;
+      margin: 0 0 24px 0;
+      line-height: 1.1;
     }
-    p {
+
+    .subtitle {
+      font-size: 22px;
+      color: var(--text-sub);
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    .divider {
+      margin: 72px 0;
+      border-top: 1px solid #eee;
+    }
+
+    .feature {
       font-size: 18px;
-      color: #555;
-      line-height: 1.5;
+      line-height: 1.8;
+      max-width: 700px;
+      color: var(--text-main);
     }
-    .note {
-      margin-top: 32px;
+
+    footer {
+      margin-top: 120px;
       font-size: 14px;
       color: #999;
     }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 40px;
+      }
+      .subtitle {
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>Optee</h1>
-    <p>
-      Simple tools for small businesses.<br>
-      Built by someone who actually uses them.
-    </p>
-    <div class="note">
-      Coming soon.
+  <div class="page">
+    <div class="badge">OPTEE</div>
+
+    <h1>
+      Simple tools.<br>
+      Built for real work.
+    </h1>
+
+    <div class="subtitle">
+      Optee builds small, focused tools for people who actually run businesses —
+      not for dashboards, buzzwords, or endless subscriptions.
     </div>
+
+    <div class="divider"></div>
+
+    <div class="feature">
+      • Designed for small operators, not enterprises<br>
+      • Offline-first, simple, and transparent<br>
+      • Built by someone who uses these tools daily
+    </div>
+
+    <footer>
+      © Optee · In private beta
+    </footer>
   </div>
 </body>
 </html>
