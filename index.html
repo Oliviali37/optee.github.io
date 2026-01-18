@@ -1,200 +1,241 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Optee</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Optee | Simple. Local. Powerful.</title>
 
-  <style>
-    :root {
-      --text-main: #111;
-      --text-sub: #666;
-      --bg: #fff;
-    }
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-    }
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0066FF",
+              "background-light": "#FFFFFF",
+              "background-dark": "#0A0A0A",
+              "card-light": "#F5F5F7",
+              "card-dark": "#1C1C1E",
+            },
+            fontFamily: {
+              display: ["Inter", "system-ui", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "12px",
+            },
+          },
+        },
+      };
+    </script>
 
-    .page {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 120px 24px;
-    }
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        min-height: max(884px, 100dvh);
+      }
+      .apple-blur {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+    </style>
+  </head>
 
-    /* Logo */
-    .logo {
-      margin-bottom: 20px;
-    }
-    .logo img {
-      height: 140px;
-      display: block;
-    }
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden"
+  >
+    <!-- Nav -->
+    <nav
+      class="fixed top-0 w-full z-50 apple-blur bg-white/70 dark:bg-black/70 border-b border-slate-200 dark:border-slate-800"
+    >
+      <div class="max-w-screen-xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+            <span class="material-icons-round text-white text-xl">play_arrow</span>
+          </div>
+          <span class="font-bold text-xl tracking-tight">Optee</span>
+        </div>
 
-    h1 {
-      font-size: 56px;
-      font-weight: 600;
-      margin: 0 0 24px 0;
-      line-height: 1.1;
-    }
+        <!-- CTA -->
+        <a
+          class="bg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
+          href="https://opteenz.gumroad.com/l/gjbawj"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get Tracker
+        </a>
+      </div>
+    </nav>
 
-    .subtitle {
-      font-size: 22px;
-      color: var(--text-sub);
-      max-width: 700px;
-      line-height: 1.6;
-    }
+    <!-- Hero -->
+    <section class="pt-32 pb-16 px-6 text-center">
+      <div class="max-w-2xl mx-auto">
+        <h1
+          class="text-5xl md:text-6xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-slate-900 to-slate-500 dark:from-white dark:to-slate-400"
+        >
+          Simple. Local. Powerful.
+        </h1>
 
-    .divider {
-      margin: 48px 0;
-      border-top: 1px solid #eee;
-    }
-
-    .feature {
-      margin-top: -12px;
-      font-size: 18px;
-      line-height: 1.8;
-      max-width: 700px;
-      color: var(--text-main);
-    }
-
-    footer {
-      margin-top: 120px;
-      font-size: 14px;
-      color: #999;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 40px; }
-      .subtitle { font-size: 18px; }
-    }
-
-    .beta {
-  max-width: 700px;
-    }
-
-    .beta h2 {
-      font-size: 28px;
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
-
-    .beta-text {
-      font-size: 18px;
-      color: #444;
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-
-    .beta a {
-      color: #111;
-      text-decoration: underline;
-    }
-
-    .small-note {
-      font-size: 12px;
-      color: #777;
-      margin-top: 6px;
-    }
-
-    .download-link{
-      font-size: 16px;
-      font-weight: 600;
-      color: #0b5fff;
-      text-decoration: none;
-    }
-
-    .download-link:hover{
-      text-decoration: underline;
-    }
-
-  </style>
-</head>
-
-<body>
-  <div class="page">
-
-    <div class="logo">
-      <img src="assets/optee-logo.png" alt="Optee logo">
-    </div>
-
-    <h1>
-      Simple tools.<br>
-      For daily operations.
-    </h1>
-
-    <div class="subtitle">
-      Optee tools are built to adapt to people, not the other way around.
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="feature">
-      - Designed for small businesses<br>
-      - Simple tools that get straight to the point and solve real problems<br>
-      - Built by someone who uses these tools daily
-    </div>
-
-    <div class="divider"></div>
-
-    <section class="beta">
-      <h2>Optee Invoice Tracker </h2>
-
-      <p class="beta-text">
-        An Excel-based invoice & payment tracking tool.
-        Built for small businesses just getting started who want to stay organized without subscriptions.
-      </p>
-
-      <p class="beta-text"><strong>What it helps with:</strong></p>
-
-      <ul>
-          <li>Automatic invoice numbering</li>
-          <li>Auto-generated summary - all invoices pulled into one sheet</li>
-          <li>No manual data entry. Break the summary? One click to rebuild</li>
-          <li>All files stored locally — no cloud, no accounts</li>
-          <li>No setup, no subscriptions, just work the way you normally do</li>
-      </ul>
-
-      <p class="beta-text">
-        Download Invoice Tracker and watch the demo video below to see how it works!
-      </p>
-
-      <a href="https://opteenz.gumroad.com/l/gjbawj" class="download-link" target="_blank" rel="noopener">
-    📥 Download Invoice Tracker
-      </a>
-
-      <p class="small-note">
-        Download is hosted by Gumroad. Pay-what-you-want
-      </p>
-
-      <div style="max-width:800px;margin:auto;">
-        <iframe
-          width="100%"
-          height="450"
-          src="https://www.youtube.com/embed/D_Ba-Pbmy0c"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+        <p class="text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
+          Optee tools are built to adapt to people, not the other way around.
+          Solve real problems without subscription fatigue.
+        </p>
       </div>
 
-
-
-
-      <p class="beta-text">
-        Any feedback is welcome,
-        please email <a href="mailto:opteenz@gmail.com">opteenz@gmail.com</a>.
-      </p>
+      <!-- Real YouTube Video Embed -->
+      <div class="max-w-4xl mx-auto mt-12 px-4">
+        <div
+          class="aspect-video rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl"
+        >
+          <iframe
+            class="w-full h-full"
+            src="https://www.youtube.com/embed/D_Ba-Pbmy0c"
+            title="Optee Invoice Tracker Demo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
     </section>
 
-    <footer>
-      © Optee · In private beta
-    </footer>
+    <div class="max-w-screen-xl mx-auto px-6">
+      <hr class="border-slate-200 dark:border-slate-800" />
+    </div>
 
-  </div>
-</body>
+    <!-- Product -->
+    <section class="py-24 px-6 max-w-screen-xl mx-auto">
+      <div class="mb-16">
+        <h2 class="text-3xl font-bold mb-4">Optee Invoice Tracker</h2>
+        <p class="text-slate-600 dark:text-slate-400 max-w-xl">
+          An Excel-based tracking tool for small businesses who want to stay organized
+          without recurring monthly fees.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all"
+        >
+          <div
+            class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mb-6"
+          >
+            <span class="material-icons-round">auto_fix_high</span>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Auto-numbering</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+            Say goodbye to manual tracking. Your invoices follow a perfect sequence automatically.
+          </p>
+        </div>
+
+        <div
+          class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all"
+        >
+          <div
+            class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full flex items-center justify-center mb-6"
+          >
+            <span class="material-icons-round">analytics</span>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Single Sheet Summary</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+            All your invoices are pulled into one master summary automatically. No manual data entry.
+          </p>
+        </div>
+
+        <div
+          class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all"
+        >
+          <div
+            class="w-10 h-10 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center mb-6"
+          >
+            <span class="material-icons-round">storage</span>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Local Storage</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+            Your data stays where it belongs—on your computer. No cloud accounts, no privacy leaks.
+          </p>
+        </div>
+
+        <div
+          class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all"
+        >
+          <div
+            class="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full flex items-center justify-center mb-6"
+          >
+            <span class="material-icons-round">bolt</span>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Zero Setup</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+            Just open and work. No accounts to create, no onboarding, and absolutely no subscriptions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download -->
+    <section class="py-24 px-6 text-center bg-slate-50 dark:bg-slate-900/50" id="download">
+      <div class="max-w-xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6">Ready to simplify your ops?</h2>
+        <p class="text-slate-600 dark:text-slate-400 mb-8">
+          Download the Invoice Tracker today. Pay what you want. Hosted by Gumroad for secure checkout.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://opteenz.gumroad.com/l/gjbawj"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-black dark:bg-white text-white dark:text-black px-10 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all active:scale-95 flex items-center justify-center gap-2"
+          >
+            <span class="material-icons-round">download</span>
+            Download Tracker
+          </a>
+        </div>
+
+        <p class="mt-6 text-xs text-slate-400 dark:text-slate-500 uppercase tracking-widest font-medium">
+          Optimized for Excel (Windows &amp; Mac)
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-slate-200 dark:border-slate-800">
+      <div
+        class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8"
+      >
+        <div class="text-center md:text-left">
+          <div class="flex items-center gap-2 justify-center md:justify-start mb-4">
+            <div class="w-6 h-6 bg-primary rounded flex items-center justify-center">
+              <span class="material-icons-round text-white text-xs">play_arrow</span>
+            </div>
+            <span class="font-bold text-lg tracking-tight">Optee</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400">
+            Simple tools for daily operations. Designed for small businesses.
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center md:items-end gap-4">
+          <a class="text-primary hover:underline font-medium" href="mailto:opteenz@gmail.com">
+            opteenz@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="max-w-screen-xl mx-auto mt-12 text-center text-xs text-slate-400 dark:text-slate-600">
+        © 2024 Optee Tools. All rights reserved.
+      </div>
+    </footer>
+  </body>
 </html>
